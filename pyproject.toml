@@ -1,0 +1,136 @@
+[project]
+name = "wtg-power-prediction"
+dynamic = ["version"]
+description = "Repository for the Hill of Towie Wind Turbine Power Prediction Kaggle competition"
+readme = "README.md"
+authors = [
+    { name = "David Bossanyi", email = "22292532+davidbossanyi@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wtg_power_prediction"]
+
+[tool.hatch.version]
+path = "src/wtg_power_prediction/__init__.py"
+
+[dependency-groups]
+dev = [
+    "coverage>=7.7.0",
+    "deptry>=0.23.0",
+    "mypy>=1.15.0",
+    "poethepoet>=0.33.1",
+    "pytest>=8.3.5",
+    "ruff>=0.11.0",
+]
+
+[tool.ruff]
+target-version = "py312"
+show-fixes = true
+extend-exclude = [".venv"]
+line-length = 120
+lint.select = [
+    "A",
+    "ANN",
+    "ARG",
+    "B",
+    "BLE",
+    "C4",
+    "C90",
+    "E",
+    "ERA",
+    "F",
+    "FBT",
+    "FURB",
+    "I",
+    "INP",
+    "ISC",
+    "N",
+    "PERF",
+    "PTH",
+    "RET",
+    "RUF",
+    "S",
+    "SIM",
+    "SLF",
+    "T20",
+    "UP",
+    "W",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+disallow_untyped_defs = true
+exclude = ".venv|__ignore__"
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.poe.tasks]
+
+[tool.poe.tasks.fmt]
+help = "Format the project"
+sequence = ["fmt-ruff-format", "fmt-ruff-check"]
+
+[tool.poe.tasks.lint]
+help = "Lint the project"
+sequence = ["lint-ruff-format", "lint-ruff-check", "lint-mypy", "lint-deps"]
+
+[tool.poe.tasks.test]
+help = "Test the project"
+sequence = ["test-run", "test-report"]
+
+[tool.poe.tasks.coverage]
+help = "View the test coverage report"
+sequence = ["cov-html", "cov-view"]
+
+[tool.poe.tasks.all]
+help = "Run all pre-commit checks"
+sequence = ["fmt", "lint", "test"]
+
+[tool.poe.tasks.fmt-ruff-check]
+cmd = "ruff check --fix-only ."
+
+[tool.poe.tasks.fmt-ruff-format]
+cmd = "ruff format ."
+
+[tool.poe.tasks.lint-ruff-check]
+cmd = "ruff check ."
+
+[tool.poe.tasks.lint-ruff-format]
+cmd = "ruff format --check ."
+
+[tool.poe.tasks.lint-mypy]
+cmd = "mypy ."
+
+[tool.poe.tasks.lint-deps]
+cmd = "deptry ."
+
+[tool.poe.tasks.test-run]
+cmd = "coverage run -m pytest tests/"
+
+[tool.poe.tasks.test-report]
+cmd = "coverage report -i"
+
+[tool.poe.tasks.cov-html]
+cmd = "coverage html"
+
+[tool.poe.tasks.cov-view]
+cmd = "python -m webbrowser -t $POE_ROOT/htmlcov/index.html"
