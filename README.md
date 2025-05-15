@@ -3,6 +3,16 @@ _Repository for the [Hill of Towie Wind Turbine Power Prediction](https://www.ka
 
 [![CI](https://github.com/davidbossanyi/hill-of-towie-wind-turbine-power-prediction/actions/workflows/ci.yaml/badge.svg)](https://github.com/davidbossanyi/hill-of-towie-wind-turbine-power-prediction/actions/workflows/ci.yaml)
 
+## Usage
+
+### Accessing the dataset
+To access the dataset, you need to be authenticated with your [Kaggle](https://www.kaggle.com/) account.
+1. Create a Kaggle account if you don't have one.
+2. Accept the [competition rules](https://www.kaggle.com/competitions/hill-of-towie-wind-turbine-power-prediction/rules) and join the competition.
+3. Go to your Kaggle account settings and create a new API token. This will download a file called `kaggle.json` to your computer.
+4. Save the `kaggle.json` file to `~/.kaggle/kaggle.json`
+The code uses [`kagglehub`](https://github.com/Kaggle/kagglehub) to download and cache the dataset.
+
 ## Development
 The development environment should be created and managed using [uv](https://docs.astral.sh/uv/). To create the environment:
 ```commandline

@@ -7,7 +7,10 @@ authors = [
     { name = "David Bossanyi", email = "22292532+davidbossanyi@users.noreply.github.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "kagglehub>=0.3.12",
+    "polars>=1.29.0",
+]
 
 [build-system]
 requires = ["hatchling"]
