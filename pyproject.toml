@@ -8,7 +8,11 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "ipykernel>=6.29.5",
     "kagglehub>=0.3.12",
+    "nbformat>=5.10.4",
+    "pandas>=2.2.3",  # required to display polars DataFrames in VSCode Data Wrangler
+    "plotly>=6.0.1",
     "polars>=1.29.0",
     "requests>=2.32.3",
 ]
@@ -26,7 +30,6 @@ path = "src/wtg_power_prediction/__init__.py"
 [dependency-groups]
 dev = [
     "coverage>=7.7.0",
-    "deptry>=0.23.0",
     "mypy>=1.15.0",
     "poethepoet>=0.33.1",
     "pytest>=8.3.5",
@@ -96,7 +99,7 @@ sequence = ["fmt-ruff-format", "fmt-ruff-check"]
 
 [tool.poe.tasks.lint]
 help = "Lint the project"
-sequence = ["lint-ruff-format", "lint-ruff-check", "lint-mypy", "lint-deps"]
+sequence = ["lint-ruff-format", "lint-ruff-check", "lint-mypy"]
 
 [tool.poe.tasks.test]
 help = "Test the project"
@@ -124,9 +127,6 @@ cmd = "ruff format --check ."
 
 [tool.poe.tasks.lint-mypy]
 cmd = "mypy ."
-
-[tool.poe.tasks.lint-deps]
-cmd = "deptry ."
 
 [tool.poe.tasks.test-run]
 cmd = "coverage run -m pytest tests/"
