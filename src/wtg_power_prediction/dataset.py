@@ -17,6 +17,15 @@ def load_training_dataset(*, force_download: bool = False) -> pl.LazyFrame:
     return pl.scan_parquet(Path(file_path))
 
 
+def load_submission_dataset(*, force_download: bool = False) -> pl.LazyFrame:
+    file_path = kagglehub.competition_download(
+        handle="hill-of-towie-wind-turbine-power-prediction",
+        path="submission_dataset.parquet",
+        force_download=force_download,
+    )
+    return pl.scan_parquet(Path(file_path))
+
+
 def load_turbine_metadata(*, force_download: bool = False) -> pl.LazyFrame:
     file_path = CACHE_DIR / "turbine_metadata.csv"
     if not file_path.exists() or force_download:
