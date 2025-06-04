@@ -76,7 +76,12 @@ lint.select = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["S101"]  # allow assert statements in tests
-"notebooks/**/*.ipynb" = ["T201"]  # allow print statements in notebooks
+"notebooks/**/*.ipynb" = [
+    "T201",  # allow print statements in notebooks
+    "S101",  # allow assert statements in notebooks
+    "N803",  # allow argument names in notebooks to start with capital letters
+    "N806",  # allow variable names in notebooks to start with capital letters
+]  
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10

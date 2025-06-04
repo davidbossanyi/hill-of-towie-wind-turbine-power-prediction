@@ -1,6 +1,6 @@
 import datetime as dt
 import math
-from typing import Any
+from typing import Any, Self
 
 import matplotlib.pyplot as plt
 import polars as pl
@@ -44,7 +44,7 @@ class WtgPowerPredictionModel:
         self.time_budget_engineering_s = time_budget_engineering_s
         self.time_budget_power_s = time_budget_power_s
 
-    def fit(self, X: pl.DataFrame, y: pl.Series) -> "WtgPowerPredictionModel":  # noqa: N803
+    def fit(self, X: pl.DataFrame, y: pl.Series) -> Self:  # noqa: N803
         df = self.preprocess(X, wtgs=self._wtgs)
         y = y.filter(df.select("is_valid").to_series())
         df = df.filter(pl.col("is_valid"))
