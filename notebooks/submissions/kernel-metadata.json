@@ -4,7 +4,7 @@
   "code_file": "hill-of-towie-power-prediction.ipynb",
   "language": "python",
   "kernel_type": "notebook",
-  "is_private": "true",
+  "is_private": "false",
   "enable_gpu": "false",
   "enable_tpu": "false",
   "enable_internet": "true",
