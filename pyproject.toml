@@ -8,10 +8,13 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "ephem>=4.2",
+    "flaml[automl]>=2.3.4",
     "ipykernel>=6.29.5",
     "kagglehub>=0.3.12",
+    "matplotlib>=3.10.3",
     "nbformat>=5.10.4",
-    "pandas>=2.2.3",  # required to display polars DataFrames in VSCode Data Wrangler
+    "pandas[pyarrow]>=2.2.3", # required to display polars DataFrames in VSCode Data Wrangler
     "plotly>=6.0.1",
     "polars>=1.29.0",
     "requests>=2.32.3",
@@ -72,7 +75,13 @@ lint.select = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = ["S101"]
+"tests/**/*.py" = ["S101"]  # allow assert statements in tests
+"notebooks/**/*.ipynb" = [
+    "T201",  # allow print statements in notebooks
+    "S101",  # allow assert statements in notebooks
+    "N803",  # allow argument names in notebooks to start with capital letters
+    "N806",  # allow variable names in notebooks to start with capital letters
+]  
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
