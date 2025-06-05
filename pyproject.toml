@@ -6,16 +6,16 @@ readme = "README.md"
 authors = [
     { name = "David Bossanyi", email = "22292532+davidbossanyi@users.noreply.github.com" }
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
     "ephem>=4.2",
-    "flaml[automl]>=2.3.4",
-    "ipykernel==6.17.1",
+    "flaml[automl]>=2.3.5",
+    "ipykernel>=6.29.5",
     "kagglehub>=0.3.12",
-    "matplotlib>=3.9,<3.10",
+    "matplotlib>=3.10.3",
     "nbformat>=5.10.4",
-    "pandas[pyarrow]==2.2.2",
-    "polars==1.21.0",
+    "pandas[pyarrow]>=2.3.0",
+    "polars>=1.30.0",
     "requests>=2.32.3",
 ]
 
@@ -31,11 +31,12 @@ path = "src/wtg_power_prediction/__init__.py"
 
 [dependency-groups]
 dev = [
-    "coverage>=7.7.0",
-    "mypy>=1.15.0",
-    "poethepoet>=0.33.1",
-    "pytest>=8.3.5",
-    "ruff>=0.11.0",
+    "coverage>=7.8.0",
+    "kaggle>=1.7.4.5",
+    "mypy>=1.16.0",
+    "poethepoet>=0.34.0",
+    "pytest>=8.4.0",
+    "ruff>=0.11.12",
     "types-requests>=2.32.0.20250515",
 ]
 

@@ -24,10 +24,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install kaggle
 
+      - name: Push Kernel to Kaggle
+        run: |
+          kaggle kernels push -p notebooks/submissions
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+
       - name: Submit to Kaggle
         run: |
           kaggle competitions submit hill-of-towie-wind-turbine-power-prediction \
-          -k notebooks/submission \
+          -k $KAGGLE_USERNAME/hill-of-towie-power-prediction \
           -f submission.csv \
           -v 1 \
           -m "Hill of Tower Power Prediction using Stacked Power Predictors"

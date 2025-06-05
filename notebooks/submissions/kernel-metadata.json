@@ -1,0 +1,17 @@
+{
+  "id": "davidbossanyi/hill-of-towie-power-prediction",
+  "title": "Hill of Tower Power Prediction using Stacked Power Predictors",
+  "code_file": "hill-of-towie-power-prediction.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": [],
+  "competition_sources": [
+    "hill-of-towie-wind-turbine-power-prediction"
+  ],
+  "kernel_sources": [],
+  "model_sources": []
+}
