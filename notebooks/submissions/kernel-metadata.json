@@ -1,6 +1,6 @@
 {
   "id": "davidbossanyi/hill-of-towie-power-prediction",
-  "title": "Hill of Tower Power Prediction using Stacked Power Predictors",
+  "title": "Hill of Towie Power Prediction",
   "code_file": "hill-of-towie-power-prediction.ipynb",
   "language": "python",
   "kernel_type": "notebook",
