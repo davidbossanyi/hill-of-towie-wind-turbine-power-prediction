@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "David Bossanyi", email = "22292532+davidbossanyi@users.noreply.github.com" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
     "ephem>=4.2",
     "flaml[automl]>=2.3.4",
