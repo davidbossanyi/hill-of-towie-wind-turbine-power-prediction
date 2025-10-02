@@ -9,7 +9,7 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "ephem>=4.2",
-    "flaml[automl]>=2.3.5",
+    "flaml[automl,catboost]>=2.3.5",
     "ipykernel>=6.29.5",
     "kagglehub>=0.3.12",
     "matplotlib>=3.10.3",
@@ -18,6 +18,7 @@ dependencies = [
     "plotly>=6.1.2",
     "polars>=1.30.0",
     "requests>=2.32.3",
+    "numpy==1.26.4",
 ]
 
 [build-system]
