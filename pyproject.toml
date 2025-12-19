@@ -19,6 +19,8 @@ dependencies = [
     "polars>=1.30.0",
     "requests>=2.32.3",
     "numpy==1.26.4",
+    "ipywidgets>=8.1.7",
+    "scipy>=1.15.3",
 ]
 
 [build-system]

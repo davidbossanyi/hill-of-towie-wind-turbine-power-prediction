@@ -175,3 +175,6 @@ cython_debug/
 
 # Submission file
 submission.csv
+
+# Catboost
+*catboost_info/
